@@ -141,6 +141,8 @@ nome = "Tata"
 mensagem = f"""
 <div class="message">
 Querida {nome},<br><br>
+Feliz Aniversário Tata, fizemos esse site pare demonstrar um pouco o quanto você é importante para nós
+ e queremos que saiba que mesmo com a distância estamos sempre com você para tudo que precisar.
 <br><br>
 Com carinho,<br>
 Seus amigos
