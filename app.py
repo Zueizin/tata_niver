@@ -1,7 +1,7 @@
 import streamlit as st
 import datetime
 import random
-from PIL import Image  # Importe a biblioteca Pillow para trabalhar com imagens
+from PIL import Image
 
 # Configuração da página
 st.set_page_config(
@@ -48,6 +48,9 @@ st.markdown("""
         50% { transform: scale(1.2); }
         100% { transform: scale(1); }
     }
+    .botao-mensagem {
+        margin: 10px;
+    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -74,8 +77,8 @@ st.markdown('<div class="title">Feliz Aniversário Tata! 🎂</div>', unsafe_all
 
 # *** ADICIONANDO UMA ÚNICA IMAGEM NO TOPO ***
 try:
-    imagem1 = Image.open("imagens/1.jpeg")  # Caminho corrigido
-    st.image(imagem1, caption="Um bolo especial!", use_container_width=True)
+    imagem1 = Image.open("imagens/1.jpeg")
+    st.image(imagem1, caption="Felicidade!", use_container_width=True)
 except FileNotFoundError:
     st.error("Erro: A imagem '1.jpeg' não foi encontrada.")
 
@@ -94,7 +97,22 @@ if st.session_state.get("show_surprise"):
     st.balloons()
 
 # Mostrar balões
-show_balloons(10)
+show_balloons(5) # Reduzi o número de balões aqui para não sobrecarregar a tela com os botões
+
+st.subheader("Mensagens Especiais:")
+col_botoes = st.columns(3)
+
+Aurelio = "ola"
+if col_botoes[0].button("Aurelio", key="botao1", use_container_width=True, help=Aurelio):
+    st.info(Aurelio)
+
+Baiano = "zooooooooooooom"
+if col_botoes[1].button("Baiano", key="botao2", use_container_width=True, help=Baiano):
+    st.info(Baiano)
+
+Tiago = "aaaaaaaaaaaaaaaa"
+if col_botoes[2].button("Tiago", key="botao3", use_container_width=True, help=Tiago):
+    st.info(Tiago)
 
 # Mensagem personalizada
 nome = "Tata"
@@ -112,20 +130,40 @@ Seus amigos
 st.markdown(mensagem, unsafe_allow_html=True)
 
 # *** ADICIONANDO MÚLTIPLAS IMAGENS EM COLUNAS ***
-st.subheader("Mais pictures:")
-cols = st.columns(2)
+st.subheader("Mais fotos:")
+cols = st.columns(3)
 
 try:
-    imagem2 = Image.open("imagens/2.jpeg")  # Caminho corrigido
-    cols[0].image(imagem2, caption="Celebrando!", use_container_width=True)
+    imagem2 = Image.open("imagens/2.jpeg")
+    cols[0].image(imagem2, caption=".....", use_container_width=True)
 except FileNotFoundError:
     cols[0].error("Imagem '2.jpeg' não encontrada.")
 
 try:
-    imagem3 = Image.open("imagens/3.jpeg")  # Caminho corrigido
-    cols[1].image(imagem3, caption="Mais festa!", use_container_width=True)
+    imagem3 = Image.open("imagens/3.jpeg")
+    cols[1].image(imagem3, caption=".....", use_container_width=True)
 except FileNotFoundError:
     cols[1].error("Imagem '3.jpeg' não encontrada.")
+
+try:
+    imagem4 = Image.open("imagens/4.jpeg")
+    cols[2].image(imagem4, caption=".....", use_container_width=True)
+except FileNotFoundError:
+    cols[2].error("Imagem '4.jpeg' não encontrada.")
+
+# Adicionando mais imagens
+cols2 = st.columns(3)
+try:
+    imagem5 = Image.open("imagens/5.jpeg")
+    cols2[0].image(imagem5, caption=".....", use_container_width=True)
+except FileNotFoundError:
+    cols2[0].error("Imagem '5.jpeg' não encontrada.")
+
+try:
+    imagem6 = Image.open("imagens/6.jpeg")
+    cols2[2].image(imagem6, caption="......", use_container_width=True)
+except FileNotFoundError:
+    cols2[2].error("Imagem '6.jpeg' não encontrada.")
 
 # Contador de idade
 data_nascimento = datetime.date(2005, 5, 15)
@@ -142,4 +180,4 @@ st.markdown(f"""
 st.markdown('<div class="footer">Feito com carinho</div>', unsafe_allow_html=True)
 
 # Mais balões no final
-show_balloons(10)
+show_balloons(5) # Reduzi o número de balões aqui também
