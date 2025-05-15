@@ -100,7 +100,7 @@ try:
     imagem1 = Image.open("imagens/1.jpeg")
     st.image(imagem1, caption="Felicidade!", use_container_width=True)
 except FileNotFoundError:
-    st.error("Erro: A imagem '1.jpeg' não foi encontrada.")
+    st.error("Erro: A imagem \'1.jpeg\' não foi encontrada.")
 
 # Botão de surpresa
 if st.button("🎁 Clique para uma surpresa!", use_container_width=True):
@@ -110,9 +110,9 @@ if st.button("🎁 Clique para uma surpresa!", use_container_width=True):
 if st.session_state.get("show_surprise"):
     st.markdown(
         f"""
-        <div class='surprise'>
-        <h2 style='color: #ff1493;'>🎉 SURPRESA! 🎉</h2>
-        <p style='font-size: 1.8rem;'>Você é incrível e merece todo o amor do mundo! 💖</p>
+        <div class=\'surprise\'>
+        <h2 style=\'color: #ff1493;\'>🎉 SURPRESA! 🎉</h2>
+        <p style=\'font-size: 1.8rem;\'>Você é incrível e merece todo o amor do mundo! 💖</p>
         {youtube_embed_code}
     """,
         unsafe_allow_html=True,
@@ -178,19 +178,19 @@ try:
     imagem2 = Image.open("imagens/2.jpeg")
     cols[0].image(imagem2, caption="...", use_container_width=True)
 except FileNotFoundError:
-    cols[0].error("Imagem '2.jpeg' não encontrada.")
+    cols[0].error("Imagem \'2.jpeg\' não encontrada.")
 
 try:
     imagem3 = Image.open("imagens/3.jpeg")
     cols[1].image(imagem3, caption="...", use_container_width=True)
 except FileNotFoundError:
-    cols[1].error("Imagem '3.jpeg' não encontrada.")
+    cols[1].error("Imagem \'3.jpeg\' não encontrada.")
 
 try:
     imagem4 = Image.open("imagens/4.jpeg")
     cols[2].image(imagem4, caption="...", use_container_width=True)
 except FileNotFoundError:
-    cols[2].error("Imagem '4.jpeg' não encontrada.")
+    cols[2].error("Imagem \'4.jpeg\' não encontrada.")
 
 # Adicionando mais imagens
 cols2 = st.columns(3)
@@ -198,13 +198,13 @@ try:
     imagem5 = Image.open("imagens/5.jpeg")
     cols2[0].image(imagem5, caption="...", use_container_width=True)
 except FileNotFoundError:
-    cols2[0].error("Imagem '5.jpeg' não encontrada.")
+    cols2[0].error("Imagem \'5.jpeg\' não encontrada.")
 
 try:
     imagem6 = Image.open("imagens/6.jpeg")
     cols2[2].image(imagem6, caption="...", use_container_width=True)
 except FileNotFoundError:
-    cols2[2].error("Imagem '6.jpeg' não encontrada.")
+    cols2[2].error("Imagem \'6.jpeg\' não encontrada.")
 
 # Contador de idade
 data_nascimento = datetime.date(2005, 5, 15)
@@ -223,14 +223,6 @@ st.markdown(
 """,
     unsafe_allow_html=True,
 )
-
-# Adicionar o vídeo diretamente (substitua 'seu_video.mp4' pelo caminho do seu arquivo)
-st.subheader("Vídeo Especial")
-video_path = "imagens/video1.mp4"  # Substitua pelo caminho do seu arquivo de vídeo
-if os.path.exists(video_path):
-    st.video(video_path)
-else:
-    st.error(f"Erro: O arquivo de vídeo '{video_path}' não foi encontrado. Certifique-se de que o caminho do arquivo está correto e que o arquivo existe.")
 
 # Rodapé
 st.markdown('<div class="footer">Feito com carinho</div>', unsafe_allow_html=True)
