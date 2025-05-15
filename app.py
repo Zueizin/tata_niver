@@ -5,6 +5,7 @@ from PIL import Image
 import altair as alt
 import pandas as pd
 import numpy as np
+import os
 
 # Configuração da página
 st.set_page_config(
@@ -119,21 +120,21 @@ if st.session_state.get("show_surprise"):
     st.balloons()
 
 # Mostrar balões
-show_balloons(5)  # Reduzi o número de balões aqui para não sobrecarregar a tela com os botões
+show_balloons(5)
 
 st.subheader("Mensagens Especiais:")
 col_botoes = st.columns(3)
 
-Aurelio = "..."
-if col_botoes[0].button("Aurelio", key="botao1", use_container_width=True, help=Aurelio):
+Aurelio = "Olá, feliz aniversário! Te desejo tudo de bom, que teus sonhos se realizem e que você tenha cada vez mais saúde. Obrigado por tudo, todos os momentos com você foram repletos de felicidade. Sinto saudades! Ass: Aurelio Comunello Carneiro"
+if col_botoes[0].button("Mensagem", key="botao1", use_container_width=True, help=Aurelio):
     st.info(Aurelio)
 
-Baiano = "..."
-if col_botoes[1].button("Baiano", key="botao2", use_container_width=True, help=Baiano):
+Baiano = "Sempre continue sendo essa pessoa que transborda felicidade e carinho, você é muito especial para mim, obrigado pelos momentos incríveis que já me proporcionou. Feliz aniversário Tata ❤️. Ass: Baiano"
+if col_botoes[1].button("Mensagem", key="botao2", use_container_width=True, help=Baiano):
     st.info(Baiano)
 
-Tiago = "..."
-if col_botoes[2].button("Tiago", key="botao3", use_container_width=True, help=Tiago):
+Tiago = "Ola tata , mais um aninho completo , as coisas passam tão rápido.Ainda ontem estava no Crescer a mudar do sétimo c para o oitavo b,e n fazia ideia da importante amizade que iria conhecer e ter.Poucas palavras conseguem expressar o que significa tê-la como amiga , muitos dias de tristeza em que seu sorriso e os rapazes fizeram do meu dia algo feliz e alegre.Esse tempo passou e só resta agradecer pelos momentos vividos e das aprendizagens obtidas.Tenho muito carinho por ti independente dos novos ciclos,e da distância que permanece.Espero que aproveites teu dia da melhor forma possível.Desejo-te sucesso na tua nova fase e q consigas aquilo que desejas pra ser feliz e estar feliz.Obrigado e beijinhos 😁🥳   Ass: Tiago Magalhães"
+if col_botoes[2].button("Mensagem", key="botao3", use_container_width=True, help=Tiago):
     st.info(Tiago)
 
 # Mensagem personalizada
@@ -223,8 +224,16 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+# Adicionar o vídeo diretamente (substitua 'seu_video.mp4' pelo caminho do seu arquivo)
+st.subheader("Vídeo Especial")
+video_path = "imagens/video1.mp4"  # Substitua pelo caminho do seu arquivo de vídeo
+if os.path.exists(video_path):
+    st.video(video_path)
+else:
+    st.error(f"Erro: O arquivo de vídeo '{video_path}' não foi encontrado. Certifique-se de que o caminho do arquivo está correto e que o arquivo existe.")
+
 # Rodapé
 st.markdown('<div class="footer">Feito com carinho</div>', unsafe_allow_html=True)
 
 # Mais balões no final
-show_balloons(5)  # Reduzi o número de balões aqui para não sobrecarregar a tela com os botões
+show_balloons(5)
